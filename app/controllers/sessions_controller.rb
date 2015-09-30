@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
     user = User.new
     if user.present?
     else
-    end
-
   end
+end
+
 
   def destroy
   end
