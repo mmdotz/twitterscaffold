@@ -9,8 +9,10 @@
 10.times do
   user = User.create({
     username: Faker::Internet.user_name,
-    password_digest: "password"
      })
+
+  user.password = "password"
+
 
   [2, 4, 6].sample.times do
     tweet = Tweet.create({
