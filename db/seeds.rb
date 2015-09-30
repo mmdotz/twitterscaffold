@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+10.times do
+  user = User.create({
+    username: Faker::Internet.user_name,
+    password_digest: "password"
+     })
+
+  [2, 4, 6].sample.times do
+    tweet = Tweet.create({
+      msg:      Faker::Hacker.say_something_smart,
+      user_id:  user.id
+      })
+  end
+end
