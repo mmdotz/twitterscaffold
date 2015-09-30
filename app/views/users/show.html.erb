@@ -5,11 +5,25 @@
   <%= @user.username %>
 </p>
 
-<p>
-  <strong>Tweets:</strong>
-  <%= @user.tweets.all %>
-</p>
+</ul>
+
+<table class="table table-hover">
+  <thead>
+    <th> Tweets</th>
+    <th> Time </th>
+  </thead>
+  <tbody>
+    <% @user.tweets.each do |tweet| %>
+    <tr>
+      <td><%= tweet.msg %></td>
+      <td><%= tweet.updated_at %></td>
+    </tr>
+  </tbody>
+  <% end %>
+
+</table>
+
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', root_path %>
