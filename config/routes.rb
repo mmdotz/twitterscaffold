@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :tweets
   resources :users
 
-root 'sessions#new'
+  get '/login', to: 'sessions#new', as: 'new_login'
+  post '/login', to: 'sessions#create', as: 'create_session'
+
+#change this back to login page as root_path
+  root 'tweets#index' #why doesn't this say login in url?
 
 end

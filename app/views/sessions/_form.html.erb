@@ -1,7 +1,9 @@
 
 <h1>Login page</h1>
 
-<%= form_tag root_path do %>
+<!-- Because session is not a resource, use new_login_path to create the session. Otherwise you can see the form but not know where to send it.  -->
+
+<%= form_tag new_login_path do %>
   <p>Username: <%= text_field_tag :username %></p>
   <p>Password: <%= password_field_tag :password %></p>
   <p><%= submit_tag "Submit" %></p>
