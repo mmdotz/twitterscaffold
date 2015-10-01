@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 10.times do
-  user = User.create({
-    username: Faker::Internet.user_name,
+  user = User.new({
+    username: Faker::Internet.user_name
      })
 
   user.password = "password"
-
+  user.save!
 
   [2, 4, 6].sample.times do
     tweet = Tweet.create({
@@ -20,4 +20,5 @@
       user_id:  user.id
       })
   end
+ user.save!
 end
