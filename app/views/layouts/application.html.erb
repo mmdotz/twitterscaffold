@@ -8,9 +8,19 @@
 </head>
 <body>
 
-<% notice %>
-<% alert %>
-<%= yield %>
+<div class="container-fluid">
+  <div class='row'>
+    <div class='col-md-3' 'col-offset-md-1'>
+      <%= notice %>
+      <%= alert %>
+    </div>
+  </div>
+
+  <section class=>
+    <%= yield %>
+  </section>
+
+</div>
 
 </body>
 </html>
