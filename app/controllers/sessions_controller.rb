@@ -5,15 +5,28 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.new
-    if user.present?
+    user = User.find_by_username(params[:username])
+    if user.present? && user.authenticate(params[:password])
+      #below is a cookie
+      session[:user_id] = user.id
+      redirect_to root_path, notice: 'Successfully logged in.'
     else
+      #when login is wrong
+      flash[:alert] = "Username or Email did not match."
+      render :new
   end
 end
 
 
   def destroy
-    user = User.find(params[:id])
-    user.delete
+    session[:user_id] = nil
+    redirect_to root_path, notice: 'Successfully logged out.'
   end
+
+
+
+  private
+
+  def set_user_session
+
 end
