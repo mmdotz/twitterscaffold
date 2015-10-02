@@ -19,8 +19,22 @@
   <section class=>
     <%= yield %>
   </section>
-
 </div>
+
+<nav>
+  <ul class="pager">
+    <li><%= link_to('Tweets', tweets_path) %></li>
+    <li><%= link_to('Users', users_path) %></li>
+  </ul>
+</nav>
+
+<nav>
+  <footer class="pager">
+      <li><%= link_to('Home', root_path) %></li>
+  </footer>
+</nav>
+
+
 
 </body>
 </html>

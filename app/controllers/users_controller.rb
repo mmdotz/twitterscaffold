@@ -17,9 +17,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # GET /users/1/edit
-  def edit
-  end
+  # # GET /users/1/edit
+  # def edit
+  # end
 
   # POST /users
   # POST /users.json
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to new_login_path, notice: 'User was successfully created.' }
       else
         format.html { render :new }
       end
