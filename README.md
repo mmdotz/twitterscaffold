@@ -19,6 +19,10 @@ To see a specific user's tweets, send a `GET` request to http://localhost:3000/u
 
 To create a new tweet,  send a `GET` request to `http://localhost:3000/tweets/new`.
 
+##Markups
+
+[UML](/IMG_0984.JPG)
+[mockups of final browser pages](/IMG_0985.JPG)
 
 ###Ruby and Rails information
 This app uses Ruby 2.2.1 and Rails 4.2.4
