@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
   def create #where we create something with the info
     user = User.find_by_username(params[:username])
     if user.present? && user.authenticate(params[:password])
-      #below is a cookie
-      session[:user_id] = user.id
+      #below is a cookie for the User object
+      set_user_session(user)
       redirect_to tweets_path, notice: 'Successfully logged in.'
     else
       #when login is wrong
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def set_user_session
+  def set_user_session(user)
     session[:logged_in_users_id] = user.id
   end
 end

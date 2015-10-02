@@ -10,29 +10,36 @@
 
 <div class="container-fluid">
   <div class='row'>
-    <div class='col-md-3' 'col-offset-md-1'>
+    <div class='col-md-3' 'col-offset-md-6'>
       <%= notice %>
       <%= alert %>
     </div>
   </div>
 
-  <section class=>
-    <%= yield %>
-  </section>
+  <div class='row'>
+      <div class='col-sm-8 col-sm-offset-2'>
+        <section>
+          <%= yield %>
+        </section>
+      </div>
+  </div>
+
+  <nav>
+    <ul class="pager">
+      <li><%= link_to('Tweets', tweets_path) %></li>
+      <li><%= link_to('Users', users_path) %></li>
+    </ul>
+  </nav>
+
+  <footer class="pager"> <!-- add ul to this footer -->
+    <nav>
+      <li><%= link_to('Home', root_path) %></li>
+    </nav>
+  </footer>
+
 </div>
 
-<nav>
-  <ul class="pager">
-    <li><%= link_to('Tweets', tweets_path) %></li>
-    <li><%= link_to('Users', users_path) %></li>
-  </ul>
-</nav>
 
-<nav>
-  <footer class="pager">
-      <li><%= link_to('Home', root_path) %></li>
-  </footer>
-</nav>
 
 
 

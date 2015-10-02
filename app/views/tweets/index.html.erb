@@ -1,7 +1,7 @@
 
 <div class='container-fluid'>
   <div class='row'>
-    <div class='col-md-6' 'col-offset-md-4'> <!-- Want to move listing tweets over by 4 units -->
+    <div class='col-md-4' 'col-offset-md-6'> <!-- Want to move listing tweets over by 4 units but this happening above th div -->
       <h1>Listing Tweets</h1>
     </div>
   </div>
@@ -31,4 +31,8 @@
 
 <br>
 
+<% if user_logged_in? %>
 <%= link_to 'New Tweet', new_tweet_path %>
+<% else %>
+<%= link_to 'Login', new_login_path %>
+<% end %>

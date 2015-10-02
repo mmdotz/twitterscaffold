@@ -15,7 +15,7 @@ send a `GET` request to `https://twitterscaffold.herokuapp.com/tweets`
 To see all users authorized to create tweets:
 send a `GET` request to `https://twitterscaffold.herokuapp.com/users`.
 
-To see a specific user's tweets, send a `GET` request to http://localhost:3000/users/:id`.
+To see a specific user's tweets, send a `GET` request to `http://localhost:3000/users/:id`.
 
 To create a new tweet,  send a `GET` request to `http://localhost:3000/tweets/new`.
 
