@@ -27,12 +27,11 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
-
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'You must be logged in to leave a tweet.' }
       end
     end
   end
@@ -54,10 +53,14 @@ class TweetsController < ApplicationController
   # DELETE /tweets/1
   # DELETE /tweets/1.json
   def destroy
-    @tweet.destroy
     respond_to do |format|
-      format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
-      format.json { head :no_content }
+      if current_user.id == @tweet.user_id
+        @tweet.destroy
+        format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { render :index, notice: 'You cannot delete another users tweet.' }
+      end
     end
   end
 
@@ -66,7 +69,6 @@ class TweetsController < ApplicationController
     def set_tweet
       @tweet = Tweet.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def tweet_params
       params.require(:tweet).permit(:msg, :user_id)
