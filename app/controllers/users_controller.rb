@@ -11,9 +11,9 @@ class UsersController < ApplicationController
   end
 
   # GET /users/new --- only the admin can make a new user
-  # def new
-  #   @user = User.new
-  # end
+  def new
+    @user = User.new
+  end
 
   # GET /users/1/edit
   def edit
@@ -23,10 +23,8 @@ class UsersController < ApplicationController
   end
 
   # POST /users
-  def create #-----only the admin can make a new user
-    if current_user == @username
+  def create
       @user = User.new(user_params)
-
       respond_to do |format|
         if @user.save
           format.html { redirect_to new_login_path, notice: 'User was successfully created.' }
@@ -34,7 +32,6 @@ class UsersController < ApplicationController
           format.html { render :new }
         end
       end
-    end
   end
 
   # PATCH/PUT /users/1

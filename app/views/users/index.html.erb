@@ -25,4 +25,10 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path %><br>
+
+<% if !user_logged_in? %>
+<%= link_to 'New Tweet', new_tweet_path %>
+<% else %>
+<%= link_to 'Login', new_login_path %>
+<% end %><br>

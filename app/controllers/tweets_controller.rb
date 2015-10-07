@@ -11,7 +11,6 @@ class TweetsController < ApplicationController
   # GET /tweets/1.json
   def show
     @tweet = Tweet.find(params[:id])
-
   end
 
   # GET /tweets/new
@@ -27,6 +26,7 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
+    @tweet.user = current_user
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
@@ -51,10 +51,9 @@ class TweetsController < ApplicationController
   end
 
   # DELETE /tweets/1
-  # DELETE /tweets/1.json
   def destroy
     respond_to do |format|
-      if current_user.id == @tweet.user_id
+      if @tweet.user = current_user
         @tweet.destroy
         format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
         format.json { head :no_content }

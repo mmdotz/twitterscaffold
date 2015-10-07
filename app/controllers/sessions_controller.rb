@@ -25,6 +25,6 @@ class SessionsController < ApplicationController
   private
 
   def set_user_session(user)
-    session[:logged_in_users_id] = user.id
+    session[:logged_in_user_id] = user.id
   end
 end

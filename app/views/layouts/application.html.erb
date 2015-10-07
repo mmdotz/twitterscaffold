@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- <p> <%# user %> </p> -->
 
 <div class="container-fluid">
   <div class='row'>
@@ -31,7 +30,9 @@
       <li><%= link_to('Users', users_path) %></li>
     </ul>
   </nav>
-  <%= link_to "Logout", logout_path, method: :delete if user_logged_in? %>
+  <!-- <p> <%# user_session %> </p> -->
+
+  <%= link_to( "Logout", logout_path, method: :delete) if user_logged_in? %>
 
   <footer class="pager"> <!-- add ul to this footer -->
     <nav>
@@ -42,6 +43,8 @@
 </div>
 
 
+<p>current_user:<%= @current_user.inspect %><br>
+<%= params.inspect if Rails.env.development? %></p>
 
 </body>
 </html>
